@@ -1,0 +1,32 @@
+App\Symfony\Entity\Ingredient:
+    ingredient_rabbi:
+        name: 'Rabbit'
+    ingredient_white_wine:
+        name: 'White wine bottle'
+    ingredient_mustard:
+        name: 'Dijon mustard'
+    ingredient_fresh_cream:
+        name: 'Fresh cream pot'
+    ingredient_olive_oil:
+        name: 'Olive oil'
+    ingredient_garlic_clove:
+        name: 'Garlic clove'
+    ingredient_shallot:
+        name: 'Shallot'
+    ingredient_laurel_leaf:
+        name: 'Laurel leaf'
+    ingredient_sprig_of_thyme:
+        name: 'Sprig of thyme'
+    ingredient_parsley:
+        name: 'Parsley'
+    ingredient_salt:
+        name: 'Salt'
+    ingredient_pepper:
+        name: 'Pepper'
+    ingredient_sugar_cube:
+        name: 'Sugar cube'
+    ingredient_carrot:
+        name: 'Carrot'
+    ingredient_{0..100}:
+        name: '<word()>'
+

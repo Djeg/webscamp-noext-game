@@ -2,12 +2,37 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Cookery Lover{% endblock %}</title>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block body %}
+            <header class="navbar-fixed">
+                {% block header %}
+                    <nav>
+                        <div class="nav-wrapper">
+                            <a href="{{ path('app_recipes_index') }}" class="brand-logo center">Cookery Lover</a>
+                            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                                <li><a href="{{ path('app_recipes_new') }}">Propose a new recipe !</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                {% endblock %}
+            </header>
+            <div class="container">
+                {% block container %}
+                {% endblock %}
+            </div>
+        {% endblock %}
+        {% block javascripts %}
+        <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+        <script src="https://npmcdn.com/jquery@3.1.0/dist/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <script type="text/babel" src="/lib/main.js"></script>
+        <script type="text/babel" src="/lib/new-recipe-form.js"></script>
+        {% endblock %}
     </body>
 </html>

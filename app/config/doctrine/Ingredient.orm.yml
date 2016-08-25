@@ -1,0 +1,11 @@
+App\Symfony\Entity\Ingredient:
+    type: entity
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+

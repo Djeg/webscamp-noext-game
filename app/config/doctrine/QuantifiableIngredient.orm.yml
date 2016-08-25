@@ -1,0 +1,18 @@
+App\Symfony\Entity\QuantifiableIngredient:
+    type: entity
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        quantity:
+            type: integer
+    manyToOne:
+        ingredient:
+            targetEntity: 'App\Symfony\Entity\Ingredient'
+            cascade: [persist]
+        recipe:
+            targetEntity: 'App\Symfony\Entity\Recipe'
+            inversedBy: 'ingredients'
+

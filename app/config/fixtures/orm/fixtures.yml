@@ -1,0 +1,4 @@
+include:
+    - ../entities/ingredients.yml
+    - ../entities/quantifiable_ingredients.yml
+    - ../entities/recipes.yml

@@ -1,0 +1,19 @@
+App\Symfony\Entity\Recipe:
+    type: entity
+    repositoryClass: 'App\Symfony\Repository\RecipeRepository'
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+        description:
+            type: text
+    oneToMany:
+        ingredients:
+            targetEntity: 'App\Symfony\Entity\QuantifiableIngredient'
+            cascade: [all]
+            mappedBy: 'recipe'
+

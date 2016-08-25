@@ -1,0 +1,25 @@
+app_recipes_index:
+    path: /
+    defaults:
+        _controller: 'AppBundle:Recipes:index'
+    methods: [GET]
+
+app_recipes_show:
+    path: /{id}
+    defaults:
+        _controller: 'AppBundle:Recipes:show'
+    methods: [GET]
+    requirements:
+        id: '\d+'
+
+app_recipes_new:
+    path: /new
+    defaults:
+        _controller: 'AppBundle:Recipes:new'
+    methods: [GET]
+
+app_recipes_create:
+    path: /
+    defaults:
+        _controller: 'AppBundle:Recipes:new'
+    methods: [POST]

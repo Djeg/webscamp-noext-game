@@ -1,0 +1,4 @@
+App\Symfony\Entity\QuantifiableIngredient:
+    quantifiable_ingredient_{0..100}:
+        quantity: '<numberBetween(1, 10)>'
+        ingredient: '@ingredient_*'
