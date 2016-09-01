@@ -5,7 +5,7 @@ namespace App\Symfony\Repository;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\HttpFoundation\Request;
 
-class RecipeRepository extends EntityRepository
+class RecipesList extends EntityRepository
 {
     /**
      * @param Request $request

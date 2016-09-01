@@ -1,7 +1,7 @@
 app_recipes_index:
     path: /
     defaults:
-        _controller: 'app.symfony.controller.recipes_controller:indexAction'
+        _controller: 'app.cookery.page.index'
     methods: [GET]
 
 app_recipes_show:

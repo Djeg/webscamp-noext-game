@@ -1,6 +1,6 @@
 App\Symfony\Entity\Recipe:
     type: entity
-    repositoryClass: 'App\Symfony\Repository\RecipeRepository'
+    repositoryClass: 'App\Symfony\Repository\RecipesList'
     id:
         id:
             type: integer

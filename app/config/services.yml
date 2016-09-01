@@ -12,3 +12,16 @@ services:
             - '@form.factory'
             - '@router'
             - '@security.token_storage'
+
+    app.symfony.repository.recipes_list:
+        class: App\Symfony\Repository\RecipesList
+        factory:
+            - '@doctrine.orm.entity_manager'
+            - 'getRepository'
+        arguments: ['App:Recipe']
+
+    app.cookery.page.index:
+        class: App\Cookery\Page\Index
+        arguments:
+            - '@app.symfony.repository.recipes_list'
+            - '@templating'
