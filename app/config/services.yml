@@ -15,10 +15,8 @@ services:
 
     app.symfony.repository.recipes_list:
         class: App\Symfony\Repository\RecipesList
-        factory:
-            - '@doctrine.orm.entity_manager'
-            - 'getRepository'
-        arguments: ['App:Recipe']
+        arguments:
+            - "@=service('doctrine.orm.entity_manager').createQueryBuilder().select('recipe').from('App:Recipe', 'recipe')"
 
     app.cookery.page.index:
         class: App\Cookery\Page\Index
