@@ -35,8 +35,7 @@ class RecipesController
         FormFactoryInterface $formFactory,
         UrlGeneratorInterface $router,
         TokenStorageInterface $tokens
-    )
-    {
+    ) {
         $this->doctrine = $doctrine;
         $this->templating = $templating;
         $this->formFactory = $formFactory;

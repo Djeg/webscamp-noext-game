@@ -11,9 +11,13 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\FormTypeInterface;
+use App\Symfony\Form\Helper\EmptyType;
 
-class RecipeType extends AbstractType
+class RecipeType implements FormTypeInterface
 {
+    use EmptyType;
+
     /**
      * {@inheritdoc}
      */

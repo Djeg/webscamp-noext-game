@@ -4,6 +4,11 @@ parameters:
 #    parameter_name: value
 
 services:
+    app.bridge.output.http_twig_response:
+        class: App\Bridge\Output\HttpTwigResponse
+        arguments:
+            - '@twig'
+
     app.symfony.controller.recipes_controller:
         class: App\Symfony\Controller\RecipesController
         arguments:
@@ -15,11 +20,17 @@ services:
 
     app.symfony.repository.recipes_list:
         class: App\Symfony\Repository\RecipesList
-        arguments:
-            - "@=service('doctrine.orm.entity_manager').createQueryBuilder().select('recipe').from('App:Recipe', 'recipe')"
+        factory: ['@doctrine.orm.entity_manager', 'getRepository']
+        arguments: ['App:Recipe']
 
     app.cookery.page.index:
         class: App\Cookery\Page\Index
         arguments:
             - '@app.symfony.repository.recipes_list'
-            - '@templating'
+            - '@app.bridge.output.http_twig_response'
+
+    app.cookery.page.show:
+        class: App\Cookery\Page\Show
+        arguments:
+            - '@app.symfony.repository.recipes_list'
+            - '@app.bridge.output.http_twig_response'

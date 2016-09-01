@@ -2,29 +2,28 @@
 
 namespace App\Cookery\Page;
 
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
-use App\Symfony\Repository\RecipesList;
 use App\Cookery\Recipe\Collection;
+use App\Cookery\Output;
 
 class Index
 {
     private $recipesList;
 
-    private $templating;
+    private $output;
 
     public function __construct(
         Collection $recipesList,
-        EngineInterface $templating
+        Output $output
     ) {
         $this->recipesList = $recipesList;
-        $this->templating = $templating;
+        $this->output = $output;
     }
 
     public function __invoke()
     {
         $recipes = $this->recipesList->all();
 
-        return $this->templating->renderResponse(':Recipes:index.html.twig', [
+        return $this->output->out(':Recipes:index.html.twig', [
             'recipes' => $recipes,
         ]);
     }

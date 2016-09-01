@@ -5,9 +5,9 @@ app_recipes_index:
     methods: [GET]
 
 app_recipes_show:
-    path: /{id}
+    path: /{recipeIdentifier}
     defaults:
-        _controller: 'app.symfony.controller.recipes_controller:showAction'
+        _controller: 'app.cookery.page.show'
     methods: [GET]
     requirements:
         id: '\d+'
