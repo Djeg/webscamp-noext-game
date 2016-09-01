@@ -5,8 +5,9 @@ namespace App\Symfony\Repository;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\QueryBuilder;
+use App\Cookery\Recipe\Collection;
 
-class RecipesList
+class RecipesList implements Collection
 {
     private $queryBuilder;
 
@@ -18,7 +19,7 @@ class RecipesList
     /**
      * @return \App\Symfony\Entity\Recipe[]
      */
-    public function findAll()
+    public function all()
     {
         return $this
             ->queryBuilder
