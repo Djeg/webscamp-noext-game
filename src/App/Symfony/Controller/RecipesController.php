@@ -6,6 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use App\Symfony\Form\Type\RecipeType;
+use App\Symfony\Entity\Recipe;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Http\SecurityEvents;
+use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 
 class RecipesController extends Controller
 {
@@ -58,11 +62,15 @@ class RecipesController extends Controller
     {
         $form = $this->createForm(RecipeType::class, null, [
             'action' => $this->generateUrl('app_recipes_create'),
+            'user' => $this->getUser(),
         ]);
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $user = $this->retrieveAndLoginUserFromRecipe($form->getData(), $request);
+            $form->getData()->setCreatedBy($user);
+
             $this->getDoctrine()->getManager()->persist($form->getData());
             $this->getDoctrine()->getManager()->flush();
 
@@ -74,5 +82,32 @@ class RecipesController extends Controller
         return $this->render(':Recipes:new.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @param Recipe $recipe
+     * @param Request $request
+     *
+     * @return User
+     */
+    protected function retrieveAndLoginUserFromRecipe(Recipe $recipe, Request $request)
+    {
+        $wellKnownUser = $this
+            ->getDoctrine()
+            ->getRepository('App:User')
+            ->findUserLike($recipe->getCreatedBy())
+        ;
+
+        if (null === $wellKnownUser) {
+            $wellKnownUser = $recipe->getCreatedBy();
+
+            $this->getDoctrine()->getManager()->persist($wellKnownUser);
+            $this->getDoctrine()->getManager()->flush();
+        }
+
+        $token = new UsernamePasswordToken($wellKnownUser, $wellKnownUser->getPassword(), "app", $wellKnownUser->getRoles());
+        $this->get('security.token_storage')->setToken($token);
+
+        return $wellKnownUser;
     }
 }

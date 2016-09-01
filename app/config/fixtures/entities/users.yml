@@ -1,0 +1,11 @@
+'App\Symfony\Entity\User':
+    user_test:
+        username: test
+        plainPassword: test
+    user_admin:
+        username: admin
+        plainPassword: admin
+        role: 'ROLE_ADMIN'
+    user_{0..100}:
+        username: '<name()>'
+        plainPassword: '<uuid()>'

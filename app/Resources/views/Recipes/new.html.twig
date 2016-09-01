@@ -28,7 +28,8 @@
                 {{ form_row(form.description, {
                     'attr': {
                         'class': 'materialize-textarea'
-                    }
+                    },
+                    'label': 'Intrusctions'
                 }) }}
             </div>
             <div class="col s12">
@@ -38,6 +39,15 @@
                 </a>
                 {{ form_widget(form.ingredients) }}
             </div>
+            {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                <h4>You are you cooker ?</h4>
+                <div class="input-field col s12">
+                    {{ form_row(form.createdBy.username) }}
+                </div>
+                <div class="input-field col s12">
+                    {{ form_row(form.createdBy.plainPassword) }}
+                </div>
+            {% endif %}
             <div class="col s12 right-align">
                 <button type="submit" class="waves-effect waves-light btn" action="submit">Submit
                     <i class="material-icons right">send</i>

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block container %}
-    <h1>{{ recipe.name }}</h1>
+    <h1>{{ recipe.name }} <small>proposed by {{ recipe.createdBy.username }}</small></h1>
 
     <section>
         <h2>Ingredients</h2>

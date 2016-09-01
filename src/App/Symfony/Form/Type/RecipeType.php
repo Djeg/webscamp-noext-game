@@ -8,6 +8,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 
 class RecipeType extends AbstractType
 {
@@ -25,6 +28,17 @@ class RecipeType extends AbstractType
                 'allow_delete' => true,
             ])
         ;
+
+        if (null === $options['user']) {
+            $builder
+                ->add('createdBy', FormType::class, [
+                    'data_class' => 'App\Symfony\Entity\User',
+                ])
+                ->get('createdBy')
+                    ->add('username', TextType::class)
+                    ->add('plainPassword', PasswordType::class)
+            ;
+        }
     }
 
     /**
@@ -35,7 +49,9 @@ class RecipeType extends AbstractType
         $resolver
             ->setDefaults([
                 'data_class' => 'App\Symfony\Entity\Recipe',
+                'user' => null,
             ])
+            ->setAllowedTypes('user', ['null', 'Symfony\Component\Security\Core\User\UserInterface'])
         ;
     }
 }

@@ -1,0 +1,22 @@
+App\Symfony\Entity\User:
+    type: entity
+    repositoryClass: 'App\Symfony\Repository\UserRepository'
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        username:
+            type: string
+        role:
+            type: string
+        password:
+            type: string
+        salt:
+            type: string
+    oneToMany:
+        recipes:
+            targetEntity: 'App\Symfony\Entity\Recipe'
+            mappedBy: 'createdBy'
+            cascade: [all]

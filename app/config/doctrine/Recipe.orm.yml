@@ -16,4 +16,9 @@ App\Symfony\Entity\Recipe:
             targetEntity: 'App\Symfony\Entity\QuantifiableIngredient'
             cascade: [all]
             mappedBy: 'recipe'
+    manyToOne:
+        createdBy:
+            targetEntity: 'App\Symfony\Entity\User'
+            inversedBy: 'recipes'
+            cascade: [persist]
 

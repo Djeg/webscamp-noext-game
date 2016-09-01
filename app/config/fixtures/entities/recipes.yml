@@ -6,7 +6,9 @@ App\Symfony\Entity\Recipe:
             Rabbit has a mild flavor that is all its own. Think chicken breast, but with a slightly different flavor. It is one of my favorites, although I mostly use wild cottontail rabbits. Domestic rabbit is readily available frozen in good supermarkets, and any decent butcher can get you some. And yes, if you are skeeved out by rabbit, use chicken instead. But rabbit is better.
             Rabbits usually come whole, and if you don’t know how to break them down yourself, ask the supermarket butcher to do it for you. This gets a little harder with frozen rabbits, so I’ve posted step-by step instructions on breaking down a rabbit here.
         ingredients: '@quantifiable_ingredient_{0..10}'
+        createdBy: '@user_test'
     recipe_{10..50}:
         name: '<word()>'
         description: '<paragraph()>'
         ingredients: ['@quantifiable_ingredient_<current()>']
+        createdBy: '@user_*'

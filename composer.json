@@ -18,7 +18,8 @@
         "symfony/polyfill-apcu": "^1.0",
         "sensio/distribution-bundle": "^5.0",
         "incenteev/composer-parameter-handler": "^2.0",
-        "nelmio/alice": "^2.1"
+        "nelmio/alice": "^2.1",
+        "knplabs/rad-user": "^2.0"
     },
     "scripts": {
         "post-install-cmd": [

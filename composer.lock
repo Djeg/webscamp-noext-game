@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "df3f45fd4f12fa14b0dd4fc4e3e04820",
-    "content-hash": "fa1e9b828f1f1ec83cdee4b03118a29b",
+    "hash": "320fa4acded88681fa14c813837c4732",
+    "content-hash": "bc08998d82588d13ae17fe2be7213fdc",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -824,6 +824,44 @@
             "time": "2016-04-29 12:21:54"
         },
         {
+            "name": "hackzilla/password-generator",
+            "version": "0.7.5",
+            "target-dir": "Hackzilla/PasswordGenerator",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hackzilla/password-generator.git",
+                "reference": "b9843d2ae04cb4bf4f9a7a79c9108044b70031d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hackzilla/password-generator/zipball/b9843d2ae04cb4bf4f9a7a79c9108044b70031d9",
+                "reference": "b9843d2ae04cb4bf4f9a7a79c9108044b70031d9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Hackzilla\\PasswordGenerator": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Platt",
+                    "email": "github@ofdan.co.uk",
+                    "homepage": "http://www.hackzilla.org"
+                }
+            ],
+            "description": "Password Generator Library",
+            "time": "2014-10-12 09:13:41"
+        },
+        {
             "name": "incenteev/composer-parameter-handler",
             "version": "v2.1.2",
             "source": {
@@ -923,6 +961,57 @@
                 "sql"
             ],
             "time": "2014-01-12 16:20:24"
+        },
+        {
+            "name": "knplabs/rad-user",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/rad-user.git",
+                "reference": "81bb8a1ef76df47875022a70a2f2249f387deb41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/rad-user/zipball/81bb8a1ef76df47875022a70a2f2249f387deb41",
+                "reference": "81bb8a1ef76df47875022a70a2f2249f387deb41",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "~2.4",
+                "hackzilla/password-generator": "~0.7.0",
+                "php": ">=5.4",
+                "symfony/config": "~2.4||~3.0",
+                "symfony/dependency-injection": "~2.4||~3.0",
+                "symfony/http-kernel": "~2.4||~3.0",
+                "symfony/security-core": "~2.4||~3.0"
+            },
+            "require-dev": {
+                "knplabs/phpspec-welldone-extension": "dev-master@dev",
+                "phpspec/phpspec": "~2.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Knp\\Rad\\User\\": "src/Knp/Rad/User/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KNPLabs Team",
+                    "email": "hello@knplabs.com"
+                }
+            ],
+            "description": "Simply handle password encryption and salt generation",
+            "time": "2016-03-04 08:53:35"
         },
         {
             "name": "monolog/monolog",

@@ -10,6 +10,7 @@
                     <div class="card-content">
                         <span class="card-title">{{ recipe.name }}</span>
                         <p class="truncate">{{ recipe.description }}</p>
+                        <p><small>Proposed by {{ recipe.createdBy.username }}</small></p>
                     </div>
                     <div class="card-action">
                         <a href="{{ path('app_recipes_show', {'id': recipe.id}) }}">See this recipe</a>

@@ -26,6 +26,11 @@ class Recipe
      */
     private $ingredients;
 
+    /**
+     * @var User|null
+     */
+    private $createdBy;
+
     public function __construct()
     {
         $this->ingredients = new ArrayCollection();
@@ -130,6 +135,26 @@ class Recipe
     public function removeIngredient(QuantifiableIngredient $ingredient)
     {
         $this->ingredients->removeElement($ingredient);
+
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * @param User $createdBy
+     *
+     * @return Recipe
+     */
+    public function setCreatedBy(User $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
