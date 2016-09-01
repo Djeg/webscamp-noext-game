@@ -1,13 +1,13 @@
 app_recipes_index:
     path: /
     defaults:
-        _controller: 'AppBundle:Recipes:index'
+        _controller: 'app.symfony.controller.recipes_controller:indexAction'
     methods: [GET]
 
 app_recipes_show:
     path: /{id}
     defaults:
-        _controller: 'AppBundle:Recipes:show'
+        _controller: 'app.symfony.controller.recipes_controller:showAction'
     methods: [GET]
     requirements:
         id: '\d+'
@@ -15,11 +15,11 @@ app_recipes_show:
 app_recipes_new:
     path: /new
     defaults:
-        _controller: 'AppBundle:Recipes:new'
+        _controller: 'app.symfony.controller.recipes_controller:newAction'
     methods: [GET]
 
 app_recipes_create:
     path: /
     defaults:
-        _controller: 'AppBundle:Recipes:new'
+        _controller: 'app.symfony.controller.recipes_controller:newAction'
     methods: [POST]

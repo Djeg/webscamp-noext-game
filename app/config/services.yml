@@ -4,6 +4,11 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.symfony.controller.recipes_controller:
+        class: App\Symfony\Controller\RecipesController
+        arguments:
+            - '@doctrine'
+            - '@templating'
+            - '@form.factory'
+            - '@router'
+            - '@security.token_storage'
